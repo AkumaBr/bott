@@ -311,14 +311,14 @@ module.exports = kconfig = async (kill, message) => {
         if (isGroupMsg && autoSticker && isMedia && isImage && !isCmd) {
             const mediaData = await decryptMedia(message, uaOverride)
             const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-            await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+            await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
         }
 		
 		// Auto-sticker de videos & gifs
 		if (isGroupMsg && autoSticker && isMedia && isVideo && !isCmd) {
 			const mediaData = await decryptMedia(message, uaOverride)
 			const videoBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-			await kill.sendMp4AsSticker(from, videoBase64, null, { stickerMetadata: true, pack: '🔰 Iris/Legião Z ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: true, loop: 0 })
+			await kill.sendMp4AsSticker(from, videoBase64, null, { stickerMetadata: true, pack: '🔰 OTAKU-VALLEY ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: true, loop: 0 })
 		}
 
         // Anti Flood para PV'S
@@ -354,14 +354,14 @@ module.exports = kconfig = async (kill, message) => {
             if (isMedia && isImage) {
 				const mediaData = await decryptMedia(message, uaOverride)
 				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
             } else if (isQuotedImage) {
                 const mediaData = await decryptMedia(quotedMsg, uaOverride)
 				const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
-				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
             } else if (args.length == 1) {
                 if (isUrl(url)) {
-                    await kill.sendStickerfromUrl(from, url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+                    await kill.sendStickerfromUrl(from, url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
                 } else return kill.reply(from, mess.nolink(), id)
             } else return kill.reply(from, mess.sticker(), id)
             break
@@ -370,7 +370,7 @@ module.exports = kconfig = async (kill, message) => {
 		case 'ttp':
 			if (args.length == 0) return kill.reply(from, mess.noargs() + 'palavras/words/números/numbers.', id)
 			const ttpst = await axios.get(`https://st4rz.herokuapp.com/api/ttp?kata=${encodeURIComponent(body.slice(5))}`)
-			await kill.sendImageAsSticker(from, ttpst.data.result, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, ttpst.data.result, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
@@ -379,7 +379,7 @@ module.exports = kconfig = async (kill, message) => {
 			await kill.reply(from, mess.wait(), id)
 			await axios.get(`https://api.xteam.xyz/attp?file&text=${encodeURIComponent(body.slice(6))}`, { responseType: 'arraybuffer' }).then(async (response) => {
 				const attp = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, attp, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, attp, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -404,7 +404,7 @@ module.exports = kconfig = async (kill, message) => {
 				const getTrigger = await upload(upTrigger, false)
 				await axios.get(`https://some-random-api.ml/canvas/triggered?avatar=${getTrigger}`, { responseType: 'arraybuffer' }).then(async (response) => {
 					const theTigger = Buffer.from(response.data, 'binary').toString('base64')
-					await kill.sendImageAsSticker(from, theTigger, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+					await kill.sendImageAsSticker(from, theTigger, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 				})
 				.catch(() => { kill.reply(from, mess.upfail(), id) })
             } else return kill.reply(from, mess.onlyimg(), id)
@@ -426,7 +426,7 @@ module.exports = kconfig = async (kill, message) => {
 				const outFile = './lib/media/img/noBg.png'
 				var result = await removeBackgroundFromImageBase64({ base64img, apiKey: config.nobg, size: 'auto', type: 'auto', outFile })
 				await fs.writeFile(outFile, result.base64img)
-				await kill.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 				await kill.reply(from, mess.nobgms(), id)
             } else return kill.reply(from, mess.onlyimg(), id)
             break
@@ -439,7 +439,7 @@ module.exports = kconfig = async (kill, message) => {
                 await kill.reply(from, mess.wait(), id)
 				const encryptMedia = isQuotedGif || isQuotedVideo ? quotedMsg : message
 				const mediaData = await decryptMedia(encryptMedia, uaOverride)
-				await kill.sendMp4AsSticker(from, mediaData, null, { stickerMetadata: true, pack: '🔰 Iris/Legião Z ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 10, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: true, loop: 0 })
+				await kill.sendMp4AsSticker(from, mediaData, null, { stickerMetadata: true, pack: '🔰 OTAKU-VALLY ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 10, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: true, loop: 0 })
 				.catch(() => { kill.reply(from, mess.gifail(), id) })
             } else return kill.reply(from, mess.onlyvgif(), id)
             break
@@ -479,7 +479,7 @@ module.exports = kconfig = async (kill, message) => {
 			const stkm = await fetch(`https://api.fdci.se/sosmed/rep.php?gambar=${encodeURIComponent(body.slice(12))}`)
 			const stimg = await stkm.json()
 			let stkfm = stimg[Math.floor(Math.random() * stimg.length) + 1]
-			await kill.sendStickerfromUrl(from, stkfm, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendStickerfromUrl(from, stkfm, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
             break
 			
 			
@@ -1113,7 +1113,7 @@ module.exports = kconfig = async (kill, message) => {
 			
         case 'roll':
             const dice = Math.floor(Math.random() * 6) + 1
-            await kill.sendStickerfromUrl(from, 'https://www.random.org/dice/dice' + dice + '.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+            await kill.sendStickerfromUrl(from, 'https://www.random.org/dice/dice' + dice + '.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
             break
 			
 			
@@ -1158,7 +1158,7 @@ module.exports = kconfig = async (kill, message) => {
 			} else {
 				if (args[0] == 'cara' || args[0] == 'coroa') {
 					if (side == 1) {
-						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/LJjkVK5/heads.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/LJjkVK5/heads.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 						if (args[0] == 'cara') {
 							await kill.reply(from, mess.flipwin(pflipxp) + ' "cara".', id)
 							addXp(user, pflipxp, nivel)
@@ -1167,7 +1167,7 @@ module.exports = kconfig = async (kill, message) => {
 							addXp(user, nflipxp, nivel)
 						}
 					} else {
-						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/wNnZ4QD/tails.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/wNnZ4QD/tails.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 						if (args[0] == 'coroa') {
 							await kill.reply(from, mess.flipwin(pflipxp) + ' "coroa".', id)
 							addXp(user, pflipxp, nivel)
@@ -1286,7 +1286,7 @@ module.exports = kconfig = async (kill, message) => {
 			
 		case 'ball':
 			const ball = await axios.get('https://nekos.life/api/v2/img/8ball')
-			await kill.sendStickerfromUrl(from, ball.data.url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendStickerfromUrl(from, ball.data.url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
@@ -1296,7 +1296,7 @@ module.exports = kconfig = async (kill, message) => {
 			const cfnean = await axios.get('https://nekos.life/api/v2/img/poke')
 			await axios.get(cfnean.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const cfune = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, cfune, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, cfune, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break			
 			
@@ -1311,7 +1311,7 @@ module.exports = kconfig = async (kill, message) => {
 			const pokean = await axios.get('https://nekos.life/api/v2/img/poke')
 			await axios.get(pokean.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const teco = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, teco, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, teco, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -1320,7 +1320,7 @@ module.exports = kconfig = async (kill, message) => {
 			const cocegas = await axios.get('https://nekos.life/api/v2/img/tickle')
 			await axios.get(cocegas.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const cosqha = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, cosqha, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, cosqha, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -1329,7 +1329,7 @@ module.exports = kconfig = async (kill, message) => {
 			const feed = await axios.get('https://nekos.life/api/v2/img/tickle')
 			await axios.get(feed.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const gfood = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, gfood, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, gfood, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -1338,7 +1338,7 @@ module.exports = kconfig = async (kill, message) => {
 			const baka = await axios.get('https://nekos.life/api/v2/img/baka')
 			await axios.get(baka .data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const bakay = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, bakay, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, bakay, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2227,7 +2227,7 @@ module.exports = kconfig = async (kill, message) => {
             const chug = await axios.get(bhug);
 			await axios.get(chug.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const hugsz = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, hugsz, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, hugsz, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2366,7 +2366,7 @@ module.exports = kconfig = async (kill, message) => {
 			const blowjob = await axios.get(rblowjc)
 			await axios.get(blowjob.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const bjanime = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, bjanime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, bjanime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2378,7 +2378,7 @@ module.exports = kconfig = async (kill, message) => {
 			const feet = await axios.get(rfeetc)
 			await axios.get(feet.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const pezinime = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, pezinime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, pezinime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2388,7 +2388,7 @@ module.exports = kconfig = async (kill, message) => {
 			const hard = await axios.get('https://nekos.life/api/v2/img/spank')
 			await axios.get(hard.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const spank = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, spank, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, spank, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2400,7 +2400,7 @@ module.exports = kconfig = async (kill, message) => {
 			const bobis = await axios.get(rboobsc)
 			await axios.get(bobis.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const tetbobs = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, tetbobs, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, tetbobs, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2412,7 +2412,7 @@ module.exports = kconfig = async (kill, message) => {
 			const lick = await axios.get(rlickc)
 			await axios.get(lick.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const lingani = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, lingani, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, lingani, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2440,7 +2440,7 @@ module.exports = kconfig = async (kill, message) => {
 			const mstbra = await axios.get(rmastubc)
 			await axios.get(mstbra.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const twodedo = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, twodedo, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, twodedo, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2452,7 +2452,7 @@ module.exports = kconfig = async (kill, message) => {
 			const solog = await axios.get(ranalc)
 			await axios.get(solog.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const anlnime = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, anlnime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, anlnime, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break        
 			
@@ -2460,14 +2460,14 @@ module.exports = kconfig = async (kill, message) => {
 		case 'randomloli':
 			if (isGroupMsg && !isNsfw) return kill.reply(from, mess.gpadulto(), id)
 			const loliz = await axios.get('https://nekos.life/api/v2/img/keta')
-			await kill.sendImageAsSticker(from, loliz.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, loliz.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
         case 'nsfwicon':
 			if (isGroupMsg && !isNsfw) return kill.reply(from, mess.gpadulto(), id)
 			const icon = await axios.get('https://nekos.life/api/v2/img/nsfw_avatar')
-			await kill.sendImageAsSticker(from, icon.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, icon.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
@@ -2479,13 +2479,13 @@ module.exports = kconfig = async (kill, message) => {
 			
 		case 'icon':
 			const avatarz = await axios.get('https://nekos.life/api/v2/img/avatar')
-			await kill.sendImageAsSticker(from, avatarz.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, avatarz.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
 		case 'face':
 			const gasm = await axios.get('https://nekos.life/api/v2/img/gasm')
-			await kill.sendImageAsSticker(from, gasm.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, gasm.data.url, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			break
 			
 			
@@ -2527,7 +2527,7 @@ module.exports = kconfig = async (kill, message) => {
 			const hentai1 = await axios.get(hentcc)
 			await axios.get(hentai1.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const hntimg = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, hntimg, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, hntimg, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
             break
 			
@@ -2545,7 +2545,7 @@ module.exports = kconfig = async (kill, message) => {
 			const nekons = await axios.get(rnekoc)
 			await axios.get(nekons.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const gatadlc = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, gatadlc, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, gatadlc, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
             break
 			
@@ -2590,7 +2590,7 @@ module.exports = kconfig = async (kill, message) => {
             const smug = await axios.get('https://nekos.life/api/v2/img/smug')
 			await axios.get(smug.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const piscaeye = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, piscaeye, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, piscaeye, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
             break
 			
@@ -2605,7 +2605,7 @@ module.exports = kconfig = async (kill, message) => {
 			const kisu = await axios.get('https://nekos.life/api/v2/img/kiss')
 			await axios.get(kisu.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const beijaod = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, beijaod, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, beijaod, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2614,7 +2614,7 @@ module.exports = kconfig = async (kill, message) => {
 			const tapi = await axios.get('https://nekos.life/api/v2/img/slap')
 			await axios.get(tapi.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 				const tapasso = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, tapasso, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, tapasso, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -2682,7 +2682,7 @@ module.exports = kconfig = async (kill, message) => {
 				const kiss = await axios.get('https://nekos.life/api/v2/img/kiss')
 				await axios.get(kiss.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 					const kissup = Buffer.from(response.data, 'binary').toString('base64')
-					await kill.sendImageAsSticker(from, kissup, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+					await kill.sendImageAsSticker(from, kissup, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 				})
 				await kill.sendTextWithMentions(from, mess.kiss(user, arqs))
 			} else if (isGroupMsg) {
@@ -2696,7 +2696,7 @@ module.exports = kconfig = async (kill, message) => {
 				const tapa = await axios.get('https://nekos.life/api/v2/img/slap')
 				await axios.get(tapa.data.url, { responseType: 'arraybuffer' }).then(async (response) => {
 					const tapaol = Buffer.from(response.data, 'binary').toString('base64')
-					await kill.sendImageAsSticker(from, tapaol, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+					await kill.sendImageAsSticker(from, tapaol, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 				})
 				await kill.sendTextWithMentions(from, mess.tapa(user, arqs))
 			} else if (isGroupMsg) {
@@ -3439,7 +3439,7 @@ module.exports = kconfig = async (kill, message) => {
 				let moji = `Emoji: ${emoji.emoji}\n\nUnicode: ${emoji.unicode}\n\nNome: ${emoji.name}\n\nInformações: ${emoji.description}\n\n`
 				for (let i = 0; i < emoji.images.length; i++) { moji += `${emoji.images[i].vendor} → ${emoji.images[i].url}\n\n═════════════════\n\n` }
 				await kill.reply(from, moji + mess.emojis(), id)
-				await kill.sendStickerfromUrl(from, emoji.images[0].url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendStickerfromUrl(from, emoji.images[0].url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
@@ -3448,7 +3448,7 @@ module.exports = kconfig = async (kill, message) => {
 			if (args.length == 0) return kill.reply(from, mess.noargs() + 'nome/nombre/name.', id)
 			const plate = await axios.get(`https://rest.farzain.com/api/special/fansign/cosplay/cosplay.php?apikey=rambu&text=${encodeURIComponent(body.slice(9))}`, { responseType: 'arraybuffer' }).then(async (response) => {
 				const myplaye = Buffer.from(response.data, 'binary').toString('base64')
-				await kill.sendImageAsSticker(from, myplaye, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, myplaye, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 OTAKU-VALLEY ⚜️', keepScale: true })
 			})
 			break
 			
